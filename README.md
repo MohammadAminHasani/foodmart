@@ -86,3 +86,6 @@ The current version is a static frontend implementation. No backend, database, o
 ## License
 
 This project was created for educational and portfolio purposes.
+
+## Author
+MohammadAmin
