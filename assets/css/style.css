@@ -23,7 +23,7 @@ body {
     border-bottom: 1px solid #E2E8E3;
 }
 
-.header h1 {
+.header .logo {
     color: #12372A;
     font-weight: 800;
     font-size: 20px;
@@ -113,7 +113,7 @@ body {
     cursor: pointer;
 }
 
-.icon-Item label {
+.icon-Item .icon-Label {
     margin-top: 7px;
     font-size: 11px;
     color: #66736B;
@@ -201,7 +201,7 @@ body {
     transform: translateY(-2px);
 }
 
-.icon-Item:hover label {
+.icon-Item:hover .icon-Label {
     color: #12372A;
 }
 
@@ -804,7 +804,7 @@ body {
     margin-top: 15px;
 }
 
-.text-Inside-Banner h1{
+.text-Inside-Banner h2{
     font-size:48px;
     line-height:1.1;
     font-weight:800;
@@ -928,7 +928,7 @@ color: #ffffff;
     font-size: medium;
 }
 
-.user-Review h1{
+.user-Review h3{
     color:#0B3D2E;
     font-size:28px;
 }
@@ -968,7 +968,7 @@ color: #ffffff;
     text-align: center;
 }
 
-.blog-Header h1{
+.blog-Header h2{
     color:#0B3D2E;
     font-size:52px;
     font-weight:800;
@@ -1285,7 +1285,7 @@ div h3{
         width: 100%;
     }
 
-    .text-Inside-Banner h1 {
+    .text-Inside-Banner h2 {
         font-size: 36px;
     }
 
@@ -1325,7 +1325,7 @@ div h3{
         width: 94%;
     }
 
-    .blog-Header h1 {
+    .blog-Header h2 {
         font-size: 36px;
     }
 
@@ -1362,8 +1362,247 @@ div h3{
         padding: 20px 25px;
         text-align: center;
     }
+
+}
+/* ====================
+   Shopping Cart Panel
+   (global — not scoped to a breakpoint, so it renders correctly at every
+   screen size; previously this whole block was accidentally left inside
+   the 576px media query above, which is why the closing brace just above
+   was missing and the cart had no styling on desktop)
+   ==================== */
+
+.cart-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 55, 42, 0.35);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
 }
 
+.cart-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  max-width: 92%;
+  height: 100vh;
+  background: #FFFFFF;
+  padding: 32px 28px;
+  box-shadow: -12px 0 35px rgba(18, 55, 42, 0.18);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+}
+
+.cart-panel.open {
+  transform: translateX(0);
+}
+
+.cart-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #E2E8E3;
+  flex-shrink: 0;
+}
+
+.cart-panel-header strong {
+  font-size: 20px;
+  font-weight: 800;
+  color: #12372A;
+  letter-spacing: -0.3px;
+}
+
+#close-cart {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #F7F8F3;
+  color: #12372A;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+#close-cart:hover {
+  background: #12372A;
+  color: #FFFFFF;
+  transform: rotate(90deg);
+}
+
+#cart-items {
+  flex: 1;
+  overflow-y: auto;
+  margin: 6px 0;
+}
+
+.cart-empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #66736B;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.cart-empty-icon {
+  font-size: 38px;
+  opacity: 0.7;
+}
+
+.cart-empty p {
+  font-size: 14px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #F0F3F1;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-image {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #F7F8F3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-item-image img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+}
+
+.cart-item-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cart-item-info strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: #17221C;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cart-item-info span {
+  font-size: 13px;
+  color: #66736B;
+}
+
+.cart-item-info span b {
+  color: #12372A;
+  font-weight: 800;
+}
+
+.remove-item {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #9AA59E;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remove-item:hover {
+  background: #FBEAEA;
+  color: #C0392B;
+}
+
+.cart-footer {
+  flex-shrink: 0;
+  border-top: 1px solid #E2E8E3;
+  padding-top: 18px;
+  margin-top: 10px;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #66736B;
+}
+
+.cart-total b {
+  font-size: 22px;
+  font-weight: 800;
+  color: #12372A;
+}
+
+.checkout-Btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  background: #12372A;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkout-Btn:hover:not(:disabled) {
+  background: #1D5B45;
+  transform: translateY(-2px);
+}
+
+.checkout-Btn:disabled {
+  background: #D8E0DA;
+  color: #9AA59E;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .cart-panel {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 20px;
+  }
+}
 /* Tablet/Large Mobile  */
 @media (max-width: 768px) {
 
@@ -1376,7 +1615,7 @@ div h3{
         gap: 25px;
     }
 
-    .header h1 {
+    .header .logo {
         font-size: 24px;
     }
 
@@ -1520,7 +1759,7 @@ div h3{
         width: 80%;
     }
 
-    .text-Inside-Banner h1 {
+    .text-Inside-Banner h2 {
         font-size: 42px;
     }
 
@@ -1554,7 +1793,7 @@ div h3{
         width: 90%;
     }
 
-    .blog-Header h1 {
+    .blog-Header h2 {
         font-size: 42px;
     }
 

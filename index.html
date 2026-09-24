@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodmart</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" href="assets/icon/gpt-image-2_Create_a_food_mart_logo_icon_with_premium_white_gold_deep_green_theme-0.ico">
+    <link rel="icon"
+        href="assets/icon/gpt-image-2_Create_a_food_mart_logo_icon_with_premium_white_gold_deep_green_theme-0.ico">
 </head>
 
 <body>
     <!-- Header Section  -->
     <header class="header">
-        <h1>FOODMART</h1>
+        <p class="logo">FOODMART</p>
         <nav class="menu">
             <ul>
                 <li class="bolder">Home</li>
@@ -21,27 +22,46 @@
             </ul>
 
             <div class="search-Bar">
-                <input type="text" placeholder="Search products...">
-                <select name="" id="">
+                <input type="text" id="search-Input" placeholder="Search products...">
+                <select id="category-filter">
                     <option value="">All Categories</option>
-                    <option value="">Fresh Produce</option>
-                    <option value="">Bakery</option>
-                    <option value="">Foods</option>
+                    <option value="fresh produce">Fresh Produce</option>
+                    <option value="fresh drinks">Fresh Drinks</option>
+                    <option value="fresh fruits">Fresh Fruits</option>
+                    <option value="organic produce">Organic Produce</option>
+                    <option value="bakery">Bakery</option>
                 </select>
                 <img class="icon" src="assets/images/🦆 icon _search icon_.png" alt="">
             </div>
             <div class="icon-Box">
                 <div class="icon-Item">
                     <img class="icon" src="assets/images/Group.png" alt="User Profile">
-                    <label>Account</label>
+                    <span class="icon-Label">Account</span>
                 </div>
                 <div class="icon-Item">
                     <img class="icon" src="assets/images/Vector (1).png" alt="Wish list">
-                    <label>Wishlist</label>
+                    <span class="icon-Label">Wishlist</span>
                 </div>
-                <div class="icon-Item">
+                <div class="icon-Item" id="cart-button">
                     <img class="icon" src="assets/images/Vector (2).png" alt="My Cart">
-                    <label>Cart</label>
+                    <span class="icon-Label">Cart <span id="cart-count">0</span></span>
+                </div>
+                <div id="cart-backdrop" class="cart-backdrop"></div>
+                <div id="cart-panel" class="cart-panel">
+                    <div class="cart-panel-header">
+                        <strong>Shopping Cart</strong>
+                        <button id="close-cart" aria-label="Close cart">×</button>
+                    </div>
+
+                    <div id="cart-items"></div>
+
+                    <div class="cart-footer">
+                        <div class="cart-total">
+                            <span>Total</span>
+                            <b><span id="cart-total">0.00</span> DA</b>
+                        </div>
+                        <button id="checkout-button" class="checkout-Btn" disabled>Checkout &nbsp;&nbsp; →</button>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -49,10 +69,11 @@
 
     <!-- Hero Section -->
     <section class="hero-Section">
-        <label class="badge">Freshness Delivered</label>
+        <span class="badge">Freshness Delivered</span>
         <h1 class="title">Fresh Food. <br>
-Better Living.</h1>
-        <p class="paragraph">Discover fresh produce, delicious bakery goods, refreshing drinks, and everyday essentials — carefully selected for your table.</p>
+            Better Living.</h1>
+        <p class="paragraph">Discover fresh produce, delicious bakery goods, refreshing drinks, and everyday essentials
+            — carefully selected for your table.</p>
         <button class="view-Button">
             <span> Shop Now &nbsp; → </span>
         </button>
@@ -172,6 +193,7 @@ Better Living.</h1>
                         </button>
                     </div>
                 </div>
+            </div>
         </section>
     </main>
     <!-- Best seller section  -->
@@ -222,7 +244,7 @@ Better Living.</h1>
 
                 </div>
 
-                <button class="cart-Btn">
+                <button class="cart-Btn add-to-cart">
                     Add To Cart &nbsp;&nbsp; →
                 </button>
 
@@ -272,7 +294,7 @@ Better Living.</h1>
 
                 </div>
 
-                <button class="cart-Btn">
+                <button class="cart-Btn add-to-cart">
                     Add To Cart &nbsp;&nbsp; →
                 </button>
 
@@ -327,7 +349,7 @@ Better Living.</h1>
 
                 </div>
 
-                <button class="cart-Btn">
+                <button class="cart-Btn add-to-cart">
                     Add To Cart &nbsp;&nbsp; →
                 </button>
 
@@ -396,7 +418,7 @@ Better Living.</h1>
 
                 </div>
 
-                <button class="cart-Btn">
+                <button class="cart-Btn add-to-cart">
                     Add To Cart &nbsp;&nbsp; →
                 </button>
 
@@ -445,7 +467,7 @@ Better Living.</h1>
 
                 </div>
 
-                <button class="cart-Btn">
+                <button class="cart-Btn add-to-cart">
                     Add To Cart &nbsp;&nbsp; →
                 </button>
 
@@ -500,7 +522,7 @@ Better Living.</h1>
 
                 </div>
 
-                <button class="cart-Btn">
+                <button class="cart-Btn add-to-cart">
                     Add To Cart &nbsp;&nbsp; →
                 </button>
 
@@ -526,7 +548,7 @@ Better Living.</h1>
                 <strong>Fresh Orange Juice</strong>
                 <span class="">★★★★☆(156)</span>
                 <b>175.00 DA</b>
-                <button class="cart-Btn">
+                <button class="cart-Btn add-to-cart">
                     Add To Cart &nbsp;&nbsp; →
                 </button>
                 <img src="assets/Images/pngegg.png" alt="Juice">
@@ -537,7 +559,7 @@ Better Living.</h1>
                 <strong>Golden Bananas</strong>
                 <span class="">★★★★☆(203)</span>
                 <b>95.00 DA</b>
-                <button class="cart-Btn">
+                <button class="cart-Btn add-to-cart">
                     Add To Cart &nbsp;&nbsp; →
                 </button>
                 <img src="assets/Images/yellow.png" alt="Banana">
@@ -548,7 +570,7 @@ Better Living.</h1>
                 <strong>Fresh Avocado</strong>
                 <span class="">★★★★☆(117)</span>
                 <b>180.00 DA</b>
-                <button class="cart-Btn">
+                <button class="cart-Btn add-to-cart">
                     Add To Cart &nbsp;&nbsp; →
                 </button>
                 <img src="assets/images/Green.png" alt="Avocado">
@@ -559,7 +581,7 @@ Better Living.</h1>
                 <strong>Dragon Fruit</strong>
                 <span class="">★★★★☆(80)</span>
                 <b>220.00 DA</b>
-                <button class="cart-Btn">
+                <button class="cart-Btn add-to-cart">
                     Add To Cart &nbsp;&nbsp; →
                 </button>
                 <img src="assets/Images/pink.png" alt="Dragon">
@@ -572,10 +594,10 @@ Better Living.</h1>
     <section class="main-Banner-Box">
         <div class="main-Banner-Box-Left">
             <div class="text-Inside-Banner">
-                <h1>
+                <h2>
                     Eat Fresh. <br>
                     Live Better.
-                </h1>
+                </h2>
 
                 <p>
                     Quality ingredients selected to bring more freshness and flavor to your everyday meals.
@@ -590,10 +612,10 @@ Better Living.</h1>
         </div>
         <div class="main-Banner-Box-Right">
             <div class="text-Inside-Banner">
-                <h1>
+                <h2>
                     Your Daily <br>
                     Freshness
-                </h1>
+                </h2>
 
                 <p>
                     From farm-fresh produce to delicious treats, everything you need is just a click away.
@@ -624,10 +646,10 @@ Better Living.</h1>
 
             <div class="user-Review">
                 <h2>★★★★☆&nbsp;<span class="txt-Green">4.8/5</span></h2>
-                <h1>Fresh & Reliable</h1>
+                <h3>Fresh & Reliable</h3>
                 <p>Everything arrived fresh and perfectly packed. The quality was even better than I expected</p>
                 <div class="user-Image">
-                    <img src="assets/Images/Ellipse 1.png" alt="Jason">
+                    <img src="assets/images/Ellipse 1.png" alt="Jason">
                 </div>
                 <div class="user-Name">
                     <b>
@@ -642,7 +664,7 @@ Better Living.</h1>
                 <h2>★★★★☆&nbsp;
                     <span class="txt-Green">4.9/5</span>
                 </h2>
-                <h1>Great Experience</h1>
+                <h3>Great Experience</h3>
                 <p>Easy to order, quick delivery, and excellent products. I'll definitely order again.</p>
                 <div class="user-Image">
                     <img src="assets/Images/Ellipse 2.png" alt="Myke">
@@ -661,13 +683,13 @@ Better Living.</h1>
     <!-- Blog And Article -->
     <section class="blog-Section">
         <div class="blog-Header">
-            <h1>Fresh Ideas & Articles</h1>
+            <h2>Fresh Ideas & Articles</h2>
 
             <p class="spacing">Discover useful tips, recipes, and simple ways to enjoy better food every day.</p>
             <div class="cards-Section-blog">
 
                 <div class="article-Box">
-                    <img src="assets/Images/FFF.png" alt="">
+                    <img src="assets/Images/FFF.png" alt="Fresh fruit bowl">
                     <div>
                         <h4>5 Benefits of Eating Fresh Fruit</h4>
                         <p>Learn why adding fresh fruit to your daily meals can make a difference to your diet.</p>
@@ -678,7 +700,7 @@ Better Living.</h1>
                 </div>
 
                 <div class="article-Box">
-                    <img src="assets/Images/Fruits.png" alt="">
+                    <img src="assets/Images/Fruits.png" alt="Fresh produce selection">
                     <div>
                         <h4>How to Choose Fresh Produce</h4>
                         <p>Simple tips to help you pick better fruits and vegetables every time you shop.!</p>
@@ -689,7 +711,7 @@ Better Living.</h1>
                 </div>
 
                 <div class="article-Box">
-                    <img src="assets/Images/MMM.png" alt="">
+                    <img src="assets/Images/MMM.png" alt="Smoothie ingredients">
                     <div>
                         <h4>Easy Healthy Smoothie Ideas</h4>
                         <p>Refresh your day with simple smoothie combinations that are delicious and easy to make.</p>
@@ -700,8 +722,7 @@ Better Living.</h1>
                 </div>
 
             </div>
-
-
+        </div>
     </section>
     <!-- Footer  -->
     <footer>
@@ -741,6 +762,7 @@ Better Living.</h1>
             <h5>Redesigned & Developed By <span>MohammadAmin Hasani</span></h5>
         </div>
     </footer>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
